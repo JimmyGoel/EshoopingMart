@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{9C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuldingBlocks", "BuldingBlocks", "{16317CF4-0A4C-4C2E-9711-BC6473735314}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Baskit", "Baskit", "{5FAAC18C-F835-475C-8301-6ECAD690D2AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{5FAAC18C-F835-475C-8301-6ECAD690D2AB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{55D5CA53-A7DE-4377-8E7C-B134B98FD3DC}"
 EndProject
@@ -17,7 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{8A62
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{F5DAC376-A620-462B-AAF3-0BF48B5A1703}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.API", "Services\Basket\Basket.API\Basket.API.csproj", "{32DB6C2C-155A-45AA-A133-B8890EB933AB}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32DB6C2C-155A-45AA-A133-B8890EB933AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32DB6C2C-155A-45AA-A133-B8890EB933AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32DB6C2C-155A-45AA-A133-B8890EB933AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32DB6C2C-155A-45AA-A133-B8890EB933AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -25,6 +37,7 @@ Global
 		{5FAAC18C-F835-475C-8301-6ECAD690D2AB} = {9C817023-C709-4CFF-8B5C-3C422946A96F}
 		{55D5CA53-A7DE-4377-8E7C-B134B98FD3DC} = {9C817023-C709-4CFF-8B5C-3C422946A96F}
 		{265B6E1E-E493-4858-B5B8-35D94B9A45B1} = {9C817023-C709-4CFF-8B5C-3C422946A96F}
+		{32DB6C2C-155A-45AA-A133-B8890EB933AB} = {5FAAC18C-F835-475C-8301-6ECAD690D2AB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62978FCA-E0C4-406E-BD76-1CAE3322CA2C}
