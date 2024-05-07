@@ -1,6 +1,10 @@
-﻿namespace Basket.API.Basket.GetBasket
+﻿using Basket.API.Models;
+
+namespace Basket.API.Basket.GetBasket
 {
-    public class GetBasketHandler
+    public record GetbasketQuery(string UserName) : IQuery<GetBasketResult>;
+    public record GetBasketResult(ShoppingCart Cart);
+    public class GetBasketQueryHandler
     {
     }
 }
