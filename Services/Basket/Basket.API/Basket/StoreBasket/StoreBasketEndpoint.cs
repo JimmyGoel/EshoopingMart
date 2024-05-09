@@ -1,5 +1,5 @@
 ﻿
-using Basket.API.Basket.GetBasket;
+
 
 namespace Basket.API.Basket.StoreBasket
 {
@@ -12,7 +12,7 @@ namespace Basket.API.Basket.StoreBasket
             app.MapPost("/StoreBasket", async (StoreBasketRequest request, ISender sender) =>
             {
                 var command = request.Adapt<StoreBasketCommand>();
-                var response = sender.Send(command);
+                var response = await sender.Send(command);
                 var result = response.Adapt<StoreBasketResult>();
                 return Results.Created($"/StoreBasket/{result.UserName}", result);
             })
