@@ -1,5 +1,7 @@
 ﻿
 
+using Basket.API.Data;
+
 namespace Basket.API.Basket.StoreBasket
 {
     public record StoreBasketCommand(ShoppingCart cart) : ICommand<StoreBasketResult>;
@@ -12,12 +14,13 @@ namespace Basket.API.Basket.StoreBasket
             RuleFor(x => x.cart.UserName).NotNull().WithMessage("User Name cannot be null");
         }
     }
-    public class StoreBasketCommandHandler : ICommandHandler<StoreBasketCommand, StoreBasketResult>
+    public class StoreBasketCommandHandler(IBasketRepository basketRepository) : ICommandHandler<StoreBasketCommand, StoreBasketResult>
     {
         public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
         {
             ShoppingCart cart = command.cart;
-            return new StoreBasketResult("swn");
+            var result = await basketRepository.StoreBasket(cart,cancellationToken);
+            return new StoreBasketResult(result.UserName);
         }
     }
 }

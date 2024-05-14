@@ -1,17 +1,18 @@
 ﻿
 using Basket.API.Basket.StoreBasket;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Basket.API.Basket.DeleteBasket
 {
-    public record DeletebasketRequest(string UserName);
+    //public record DeletebasketRequest(string UserName);
     public record DeletebasketResult(bool IsSuccess);
     public class DeleteBasketEndpoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapDelete("/DeleteBasket", async (DeletebasketRequest request, ISender sender) =>
+            app.MapDelete("/DeleteBasket/{UserName}", async (string UserName, ISender sender) =>
             {
-                var response = await sender.Send(new DeleteBasketCommand(request.UserName));
+                var response = await sender.Send(new DeleteBasketCommand(UserName));
                 var result = response.Adapt<DeletebasketResult>();
                 return Results.Ok(result);
             })
