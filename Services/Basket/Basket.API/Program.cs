@@ -1,6 +1,7 @@
 
 using Basket.API.Data;
 using BuildingBlocks.Exceptions.Handler;
+using Discount.Grpc;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -27,11 +28,17 @@ builder.Services.AddStackExchangeRedisCache(config =>
 {
     config.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
+//GRPC-Service
+//TODO: ADD Serice 
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(option => {
+    option.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
+});
 
+//Cross-Cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
-    .AddNpgSql(builder.Configuration.GetConnectionString("Redis")!);
+    .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
 
 
 var app = builder.Build();

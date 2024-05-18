@@ -2,13 +2,14 @@
 
 namespace DiscountgRPC.Data
 {
-    public static class Extension
+    public static class Extensions
     {
         public static IApplicationBuilder UseMigration(this IApplicationBuilder app)
         {
             using var scop = app.ApplicationServices.CreateScope();
-            using var dbcontext = app.ApplicationServices.GetRequiredService<DiscountContext>();
-            dbcontext.Database.MigrateAsync().Wait();
+            var dbcontext = scop.ServiceProvider.GetRequiredService<DiscountContext>();
+            dbcontext.Database.MigrateAsync();
+
             return app;
         }
     }
