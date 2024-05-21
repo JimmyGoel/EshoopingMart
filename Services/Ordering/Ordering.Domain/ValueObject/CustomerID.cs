@@ -1,5 +1,5 @@
 ﻿using Ordering.Domain.Exceptions;
-using Ordering.Domain.Order;
+using Ordering.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

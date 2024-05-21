@@ -6,24 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ordering.Domain.Order
+namespace Ordering.Domain.Models
 {
-    public class Customer : Entity<CustomerID>
+    public class Product : Entity<ProductId>
     {
         public string Name { get; private set; } = default!;
-        public string Email { get; private set; } = default!;
+        public decimal Price { get; private set; } = default!;
 
-        public static Customer create(CustomerID id, string name, string email)
+        public static Product create(ProductId id, string name, decimal price)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(name);
-            ArgumentException.ThrowIfNullOrWhiteSpace(email);
-            var customer = new Customer
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
+            var Product = new Product
             {
                 Id = id,
                 Name = name,
-                Email = email,
+                Price = price,
             };
-            return customer;
+            return Product;
         }
+
     }
 }
